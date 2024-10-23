@@ -43,7 +43,31 @@ export function ListagemDePonto() {
             turno: "diurno",
         },
         {
-            id: 1,
+            id: 2,
+            data: baseData,
+            jornada: "07:00 - 18:00",
+            chegada: baseHour,
+            inicioIntervalo: baseHour,
+            fimIntervalo: baseHour,
+            saida: baseHour,
+            atrasos: "00:30",
+            horaExtra: "01:00",
+            turno: "diurno",
+        },
+        {
+            id: 3,
+            data: baseData,
+            jornada: "09:00 - 18:00",
+            chegada: baseHour,
+            inicioIntervalo: baseHour,
+            fimIntervalo: baseHour,
+            saida: baseHour,
+            atrasos: "00:30",
+            horaExtra: "01:00",
+            turno: "diurno",
+        },
+        {
+            id: 4,
             data: baseData,
             jornada: "08:00 - 18:00",
             chegada: baseHour,
@@ -55,7 +79,7 @@ export function ListagemDePonto() {
             turno: "diurno",
         },
         {
-            id: 1,
+            id: 5,
             data: baseData,
             jornada: "08:00 - 18:00",
             chegada: baseHour,
@@ -67,7 +91,7 @@ export function ListagemDePonto() {
             turno: "diurno",
         },
         {
-            id: 1,
+            id: 6,
             data: baseData,
             jornada: "08:00 - 18:00",
             chegada: baseHour,
@@ -79,7 +103,7 @@ export function ListagemDePonto() {
             turno: "diurno",
         },
         {
-            id: 1,
+            id: 7,
             data: baseData,
             jornada: "08:00 - 18:00",
             chegada: baseHour,
@@ -91,7 +115,7 @@ export function ListagemDePonto() {
             turno: "diurno",
         },
         {
-            id: 1,
+            id: 8,
             data: baseData,
             jornada: "08:00 - 18:00",
             chegada: baseHour,
@@ -103,7 +127,7 @@ export function ListagemDePonto() {
             turno: "diurno",
         },
         {
-            id: 1,
+            id: 9,
             data: baseData,
             jornada: "08:00 - 18:00",
             chegada: baseHour,
@@ -115,31 +139,7 @@ export function ListagemDePonto() {
             turno: "diurno",
         },
         {
-            id: 1,
-            data: baseData,
-            jornada: "08:00 - 18:00",
-            chegada: baseHour,
-            inicioIntervalo: baseHour,
-            fimIntervalo: baseHour,
-            saida: baseHour,
-            atrasos: "00:30",
-            horaExtra: "01:00",
-            turno: "diurno",
-        },
-        {
-            id: 1,
-            data: baseData,
-            jornada: "08:00 - 18:00",
-            chegada: baseHour,
-            inicioIntervalo: baseHour,
-            fimIntervalo: baseHour,
-            saida: baseHour,
-            atrasos: "00:30",
-            horaExtra: "01:00",
-            turno: "diurno",
-        },
-        {
-            id: 1,
+            id: 10,
             data: baseData,
             jornada: "08:00 - 18:00",
             chegada: baseHour,
@@ -168,10 +168,18 @@ export function ListagemDePonto() {
         <>
             <RegistroDePonto />
             <DataGrid
-                sx={{ marginTop: 2 }}
+                sx={{
+                    marginTop: 2,
+                    width: "1521px",
+                    height: "602px",
+                    position: "absolute",
+                    top: "209px",
+                    left: "290px",
+                    borderRadius: "8px 0px 0px 0px",
+                    border: "1px solid transparent",
+                }}
                 disableRowSelectionOnClick
                 disableColumnMenu
-                autoHeight
                 rows={listagemPonto}
                 columns={columns}
                 localeText={{
@@ -186,8 +194,8 @@ export function ListagemDePonto() {
                         },
                     },
                 }}
-                components={{
-                    Toolbar: QuickSearchToolbar,
+                slots={{
+                    toolbar: QuickSearchToolbar,
                 }}
                 pageSizeOptions={[10, 20, 30]}
             />
@@ -204,11 +212,16 @@ const RegistroDePonto: React.FC = () => {
                 height: "24px",
                 position: "absolute",
                 top: "20px",
-                left: "104px",
+                left: "291px",
                 gap: "0px",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
+                fontFamily: "'manrope', sans-serif",
+                fontSize: "16px",
+                fontWeight: 700,
+                lineHeight: "24px",
+                textAlign: "left",
             }}>
             Registro de Ponto
         </Box>

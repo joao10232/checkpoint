@@ -1,11 +1,12 @@
 import { useState } from "react";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import { Box, Button, Drawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
-import ContrastIcon from "@mui/icons-material/Contrast";
 import AcUnitIcon from "@mui/icons-material/AcUnit";
 import DensityMediumIcon from "@mui/icons-material/DensityMedium";
+import QueryBuilderIcon from "@mui/icons-material/QueryBuilder";
+import PeopleIcon from "@mui/icons-material/People";
+import GroupAddIcon from "@mui/icons-material/GroupAdd";
+import DomainDisabledIcon from "@mui/icons-material/DomainDisabled";
 
 export function Nav() {
     const [open, setOpen] = useState(false);
@@ -17,31 +18,32 @@ export function Nav() {
     const arrayListagemDePonto = [
         {
             name: "Ponto",
-            icon: <DarkModeIcon />,
+            icon: <QueryBuilderIcon />,
         },
         {
-            name: "Colaboradores",
-            icon: <ContrastIcon />,
+            name: "Cadastrar Funcionário",
+            icon: <GroupAddIcon />,
         },
         {
             name: "Ausências",
-            icon: <AcUnitIcon />,
+            icon: <DomainDisabledIcon />,
         },
     ];
 
     const DrawerList = (
-        <Box sx={{ width: 250 }} role='presentation' onClick={toggleDrawer(false)}>
+        <Box sx={{ width: 260 }} role='presentation' onClick={toggleDrawer(false)}>
+            <img src='' style={{}} />
             <List>
                 {arrayListagemDePonto.map((item, index) => (
                     <ListItem key={item.name} disablePadding>
                         <ListItemButton>
                             <ListItemIcon>
                                 {index % 3 === 0 ? (
-                                    <AcUnitIcon />
+                                    <QueryBuilderIcon />
                                 ) : index % 3 === 1 ? (
-                                    <ContrastIcon />
+                                    <GroupAddIcon />
                                 ) : (
-                                    <DarkModeIcon />
+                                    <DomainDisabledIcon />
                                 )}
                             </ListItemIcon>
                             <ListItemText primary={item.name} />
