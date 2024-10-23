@@ -16,71 +16,157 @@ interface IListagemPonto {
     horaExtra: string;
     turno: string;
 }
+
+const QuickSearchToolbar = () => {
+    return (
+        <Box sx={{ p: 2, display: "flex", justifyContent: "end" }}>
+            <GridToolbarQuickFilter placeholder='Digite para pesquisar' />
+        </Box>
+    );
+};
+
 export function ListagemDePonto() {
+    const baseData = moment().format("DD/MM/YY");
+    const baseHour = moment("2024-10-28T08:00Z").format("HH:mm");
+
     const [listagemPonto, setListagemPonto] = useState<IListagemPonto[]>([
         {
             id: 1,
-            data: moment().format("DD/MM/YYYY"),
+            data: baseData,
             jornada: "08:00 - 18:00",
-            chegada: moment("2024-10-28T08:00Z").format("HH:mm"),
-            inicioIntervalo: moment("2024-10-28T08:00Z").format("HH:mm"),
-            fimIntervalo: moment("2024-10-28T08:00Z").format("HH:mm"),
-            saida: moment("2024-10-28T08:00Z").format("HH:mm"),
+            chegada: baseHour,
+            inicioIntervalo: baseHour,
+            fimIntervalo: baseHour,
+            saida: baseHour,
+            atrasos: "00:30",
+            horaExtra: "01:00",
+            turno: "diurno",
+        },
+        {
+            id: 1,
+            data: baseData,
+            jornada: "08:00 - 18:00",
+            chegada: baseHour,
+            inicioIntervalo: baseHour,
+            fimIntervalo: baseHour,
+            saida: baseHour,
+            atrasos: "00:30",
+            horaExtra: "01:00",
+            turno: "diurno",
+        },
+        {
+            id: 1,
+            data: baseData,
+            jornada: "08:00 - 18:00",
+            chegada: baseHour,
+            inicioIntervalo: baseHour,
+            fimIntervalo: baseHour,
+            saida: baseHour,
+            atrasos: "00:30",
+            horaExtra: "01:00",
+            turno: "diurno",
+        },
+        {
+            id: 1,
+            data: baseData,
+            jornada: "08:00 - 18:00",
+            chegada: baseHour,
+            inicioIntervalo: baseHour,
+            fimIntervalo: baseHour,
+            saida: baseHour,
+            atrasos: "00:30",
+            horaExtra: "01:00",
+            turno: "diurno",
+        },
+        {
+            id: 1,
+            data: baseData,
+            jornada: "08:00 - 18:00",
+            chegada: baseHour,
+            inicioIntervalo: baseHour,
+            fimIntervalo: baseHour,
+            saida: baseHour,
+            atrasos: "00:30",
+            horaExtra: "01:00",
+            turno: "diurno",
+        },
+        {
+            id: 1,
+            data: baseData,
+            jornada: "08:00 - 18:00",
+            chegada: baseHour,
+            inicioIntervalo: baseHour,
+            fimIntervalo: baseHour,
+            saida: baseHour,
+            atrasos: "00:30",
+            horaExtra: "01:00",
+            turno: "diurno",
+        },
+        {
+            id: 1,
+            data: baseData,
+            jornada: "08:00 - 18:00",
+            chegada: baseHour,
+            inicioIntervalo: baseHour,
+            fimIntervalo: baseHour,
+            saida: baseHour,
+            atrasos: "00:30",
+            horaExtra: "01:00",
+            turno: "diurno",
+        },
+        {
+            id: 1,
+            data: baseData,
+            jornada: "08:00 - 18:00",
+            chegada: baseHour,
+            inicioIntervalo: baseHour,
+            fimIntervalo: baseHour,
+            saida: baseHour,
+            atrasos: "00:30",
+            horaExtra: "01:00",
+            turno: "diurno",
+        },
+        {
+            id: 1,
+            data: baseData,
+            jornada: "08:00 - 18:00",
+            chegada: baseHour,
+            inicioIntervalo: baseHour,
+            fimIntervalo: baseHour,
+            saida: baseHour,
+            atrasos: "00:30",
+            horaExtra: "01:00",
+            turno: "diurno",
+        },
+        {
+            id: 1,
+            data: baseData,
+            jornada: "08:00 - 18:00",
+            chegada: baseHour,
+            inicioIntervalo: baseHour,
+            fimIntervalo: baseHour,
+            saida: baseHour,
             atrasos: "00:30",
             horaExtra: "01:00",
             turno: "diurno",
         },
     ]);
-    const columns: GridColDef[] = [
-        {
-            field: "data",
-            headerName: "Data",
-        },
-        {
-            field: "jornada",
-            headerName: "Jornada",
-        },
-        {
-            field: "chegada",
-            headerName: "Chegada",
-        },
-        {
-            field: "inicioIntervalo",
-            headerName: "Inicio Intervalo",
-        },
-        {
-            field: "fimIntervalo",
-            headerName: "Fim intervalo",
-        },
-        {
-            field: "saida",
-            headerName: "Saída",
-        },
-        {
-            field: "atrasos",
-            headerName: "Atrasos",
-        },
-        {
-            field: "horaExtra",
-            headerName: "Hora extras",
-        },
-        {
-            field: "turno",
-            headerName: "Turno",
-        },
-    ];
 
-    const QuickSearchToolbar = () => {
-        return (
-            <Box sx={{ p: 2, display: "flex", justifyContent: "end" }}>
-                <GridToolbarQuickFilter placeholder='Digite para pesquisar' />
-            </Box>
-        );
-    };
+    const columns: GridColDef[] = [
+        { field: "data", headerName: "Data" },
+        { field: "jornada", headerName: "Jornada" },
+        { field: "chegada", headerName: "Chegada" },
+        { field: "inicioIntervalo", headerName: "Inicio Intervalo" },
+        { field: "fimIntervalo", headerName: "Fim Intervalo" },
+        { field: "saida", headerName: "Saída" },
+        { field: "atrasos", headerName: "Atrasos" },
+        { field: "horaExtra", headerName: "Hora extras" },
+        { field: "turno", headerName: "Turno" },
+    ];
 
     return (
         <>
-            Registro de ponto
+            <RegistroDePonto />
             <DataGrid
                 sx={{ marginTop: 2 }}
                 disableRowSelectionOnClick
@@ -100,13 +186,8 @@ export function ListagemDePonto() {
                         },
                     },
                 }}
-                slots={{
-                    toolbar: QuickSearchToolbar,
-                }}
-                slotProps={{
-                    toolbar: {
-                        quickFilterProps: { debounceMs: 300 },
-                    },
+                components={{
+                    Toolbar: QuickSearchToolbar,
                 }}
                 pageSizeOptions={[10, 20, 30]}
             />
@@ -114,6 +195,7 @@ export function ListagemDePonto() {
         </>
     );
 }
+
 const RegistroDePonto: React.FC = () => {
     return (
         <Box

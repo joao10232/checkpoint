@@ -5,6 +5,7 @@ import DarkModeIcon from "@mui/icons-material/DarkMode";
 import { Box, Button, Drawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
 import ContrastIcon from "@mui/icons-material/Contrast";
 import AcUnitIcon from "@mui/icons-material/AcUnit";
+import DensityMediumIcon from "@mui/icons-material/DensityMedium";
 
 export function Nav() {
     const [open, setOpen] = useState(false);
@@ -53,7 +54,10 @@ export function Nav() {
 
     return (
         <div>
-            <Button onClick={toggleDrawer(true)}>Open drawer</Button>
+            <Button onClick={toggleDrawer(true)}>
+                {" "}
+                <DensityMediumIcon sx={{ color: "black" }} />
+            </Button>
             <Drawer open={open} onClose={toggleDrawer(false)}>
                 {DrawerList}
             </Drawer>
