@@ -3,6 +3,13 @@ import { DataGrid, GridColDef, GridToolbarQuickFilter } from "@mui/x-data-grid";
 import moment from "moment";
 import { useState } from "react";
 import { Outlet } from "react-router-dom";
+import * as React from "react";
+import IconButton from "@mui/material/IconButton";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import MoreVertIcon from "@mui/icons-material/MoreVert";
+import UserProfile from "../../components/Nav/UserProfile";
+import { CenterFocusStrong } from "@mui/icons-material";
 
 interface IListagemPonto {
     id: number;
@@ -16,6 +23,10 @@ interface IListagemPonto {
     horaExtra: string;
     turno: string;
 }
+
+const options = ["Editar Perfil", "Sair"];
+
+const ITEM_HEIGHT = 48;
 
 const QuickSearchToolbar = () => {
     return (
@@ -152,6 +163,17 @@ export function ListagemDePonto() {
         },
     ]);
 
+    const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+    const open = Boolean(anchorEl);
+
+    const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+        setAnchorEl(event.currentTarget);
+    };
+
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
+
     const columns: GridColDef[] = [
         { field: "data", headerName: "Data" },
         { field: "jornada", headerName: "Jornada" },
@@ -159,22 +181,74 @@ export function ListagemDePonto() {
         { field: "inicioIntervalo", headerName: "Inicio Intervalo" },
         { field: "fimIntervalo", headerName: "Fim Intervalo" },
         { field: "saida", headerName: "Saída" },
-        { field: "atrasos", headerName: "Atrasos" },
-        { field: "horaExtra", headerName: "Hora extras" },
+        {
+            field: "atrasos",
+            headerName: "Atrasos",
+            renderCell: (params) => <span style={{ color: "red" }}>{params.value}</span>,
+        },
+        {
+            field: "horaExtra",
+            headerName: "Hora extras",
+            renderCell: (params) => <span style={{ color: "blue" }}>{params.value}</span>,
+        },
         { field: "turno", headerName: "Turno" },
     ];
 
     return (
         <>
             <RegistroDePonto />
+
+            <UserProfile />
+            <div style={{ position: "absolute", top: "15px", right: "70px" }}>
+                <IconButton
+                    aria-label='more'
+                    id='long-button'
+                    aria-controls={open ? "long-menu" : undefined}
+                    aria-expanded={open ? "true" : undefined}
+                    aria-haspopup='true'
+                    onClick={handleClick}>
+                    <MoreVertIcon />
+                </IconButton>
+                <Menu
+                    id='long-menu'
+                    MenuListProps={{
+                        "aria-labelledby": "long-button",
+                    }}
+                    anchorEl={anchorEl}
+                    open={open}
+                    onClose={handleClose}
+                    slotProps={{
+                        paper: {
+                            style: {
+                                maxHeight: ITEM_HEIGHT * 4.5,
+                                width: "20ch",
+                            },
+                        },
+                    }}>
+                    {options.map((option) => (
+                        <MenuItem
+                            key={option}
+                            onClick={handleClose}
+                            sx={{
+                                "&:hover": {
+                                    backgroundColor: "rgba(0, 0, 0, 0.08)",
+                                },
+                            }}>
+                            {option}
+                        </MenuItem>
+                    ))}
+                </Menu>
+            </div>
             <DataGrid
                 sx={{
+                    justifyContent: "center",
+                    textAlign: "center",
                     marginTop: 2,
-                    width: "1521px",
-                    height: "602px",
+                    width: "90vw",
+                    height: "700px",
+                    maxWidth: "1400px",
                     position: "absolute",
-                    top: "209px",
-                    left: "290px",
+                    left: "260px",
                     borderRadius: "8px 0px 0px 0px",
                     border: "1px solid transparent",
                 }}

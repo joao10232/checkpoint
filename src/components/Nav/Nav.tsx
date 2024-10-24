@@ -1,10 +1,7 @@
 import { useState } from "react";
-import DarkModeIcon from "@mui/icons-material/DarkMode";
 import { Box, Button, Drawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
-import AcUnitIcon from "@mui/icons-material/AcUnit";
 import DensityMediumIcon from "@mui/icons-material/DensityMedium";
 import QueryBuilderIcon from "@mui/icons-material/QueryBuilder";
-import PeopleIcon from "@mui/icons-material/People";
 import GroupAddIcon from "@mui/icons-material/GroupAdd";
 import DomainDisabledIcon from "@mui/icons-material/DomainDisabled";
 
